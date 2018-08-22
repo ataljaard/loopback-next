@@ -5,6 +5,7 @@
   "engines": {
     "node": ">=8.9"
   },
+  "types": "./dist/index.d.ts",
   "devDependencies": {
     "@loopback/build": "^1.4.0",
     "@loopback/openapi-spec-builder": "^1.1.2",
@@ -18,6 +19,7 @@
   "scripts": {
     "build:apidocs": "lb-apidocs",
     "build": "lb-tsc es2017 --outDir dist",
+    "build:resources": "lb-copy-resources",
     "clean": "lb-clean loopback-openapi-v3*.tgz dist package",
     "integration": "lb-mocha \"dist/__tests__/integration/**/*.js\"",
     "pretest": "npm run build",

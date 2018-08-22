@@ -5,9 +5,11 @@
   "engines": {
     "node": ">=8.9"
   },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build:apidocs": "lb-apidocs",
     "build": "lb-tsc es2017 --outDir dist",
+    "build:resources": "lb-copy-resources",
     "clean": "lb-clean loopback-http-server*.tgz dist package api-docs",
     "pretest": "npm run build",
     "test": "lb-mocha \"dist/__tests__/**/*.js\"",

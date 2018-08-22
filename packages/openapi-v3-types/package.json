@@ -5,6 +5,7 @@
   "engines": {
     "node": ">=8.9"
   },
+  "types": "./dist/index.d.ts",
   "dependencies": {
     "openapi3-ts": "^1.0.0"
   },
@@ -17,6 +18,7 @@
   "scripts": {
     "build:apidocs": "lb-apidocs",
     "build": "lb-tsc es2017 --outDir dist",
+    "build:resources": "lb-copy-resources",
     "clean": "lb-clean loopback-openapi-v3-types*.tgz dist package api-docs",
     "verify": "npm pack && tar xf loopback-openapi-v3-types*.tgz && tree package && npm run clean",
     "pretest": "npm run build",
