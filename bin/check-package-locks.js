@@ -32,11 +32,9 @@ async function checkPackageLocks() {
     }),
   );
   const badPackages = checkResults.filter(r => r.violations.length > 0);
-  if (!badPackages.length) return 0;
+  if (!badPackages.length) return true;
 
-  console.error();
-  console.error('Invalid package-lock entries found!');
-  console.error();
+  console.error('\nInvalid package-lock entries found!\n');
   for (const {lockFile, violations} of badPackages) {
     console.error('  %s', lockFile);
     for (const v of violations) {
@@ -44,16 +42,14 @@ async function checkPackageLocks() {
     }
   }
 
-  console.error();
-  console.error('Run the following command to fix the problems:');
-  console.error();
-  console.error('  $ npm run update-package-locks');
-  console.error();
+  console.error('\nRun the following command to fix the problems:');
+  console.error('\n  $ npm run update-package-locks\n');
+  return false;
 }
 
 if (require.main === module) {
   checkPackageLocks().then(
-    result => process.exit(result),
+    ok => process.exit(ok ? 0 : 1),
     err => {
       console.error(err);
       process.exit(2);
