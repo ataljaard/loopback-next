@@ -9,7 +9,6 @@ far!
 - Greater influence on LoopBack's future direction
 - Commit (write) rights to `loopback-next` repo
 - Ability to review and land pull requests, edit/categorize/close issues
-- Access to a private Gitter room for LoopBack maintainers
 
 ## What are a maintainer's responsibilities?
 
